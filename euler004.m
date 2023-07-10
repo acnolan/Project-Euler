@@ -8,6 +8,12 @@ function y = euler004(x)
     % The largest one will be made of the largest numbers so we decrement
     % Once we find a large number we can break.
     for i = x:-1:1
+        % Exit early if nothing in this loop will be a bigger palindrome
+        if i < y / x
+            break;
+        end
+        
+        % Start inner loop at i, we would have covered bigger cases already
         for j = x:-1:1
             test = i * j;
             if string(test) == reverse(string(test))
